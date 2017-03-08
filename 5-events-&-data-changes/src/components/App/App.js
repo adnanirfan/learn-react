@@ -11,18 +11,28 @@ class App extends Component {
       count: 0,
       title: 'Welcome!'
     }
+    /*
+     * setInterval for Counter
+     */
     setInterval(() => {
       this.setState({ count: ++this.state.count })
     }, 1000)
   }
 
+  /*
+   * onChange listner on Input
+   */
   onChangeTitle(e) {
     this.setState({ title: e.target.value });
   }
 
+  /*
+   * changeHandler as a props
+   */
   changeHandler(title) {
     this.setState({ title })
   }
+
   render() {
 
     return (

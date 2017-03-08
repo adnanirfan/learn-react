@@ -4,6 +4,9 @@ import './Header.css';
 
 class Header extends Component {
 
+    /*
+     * onChange listner on Input
+     */
     changeHandler(e) {
         this.props.changeHandler(e.target.value);
     }
@@ -12,9 +15,9 @@ class Header extends Component {
         return (
             <div className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
-                <h2>{this.props.title}</h2>
-                <hr />
+                <br />
                 <input value={this.props.title} onChange={this.changeHandler.bind(this)}/>
+                <h2>{this.props.title}</h2>
             </div>
         )
     }
