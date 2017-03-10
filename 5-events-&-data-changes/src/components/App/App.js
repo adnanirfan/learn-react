@@ -15,7 +15,7 @@ class App extends Component {
      * setInterval for Counter
      */
     setInterval(() => {
-      this.setState({ count: ++this.state.count })
+      // this.setState({ count: ++this.state.count })
     }, 1000)
   }
 
@@ -38,14 +38,39 @@ class App extends Component {
     return (
       <div className="App">
         <Header title={this.state.title} changeHandler={this.changeHandler.bind(this)} />
+        
         <div className="App-intro">
+          
           <h2>Counter: {this.state.count} </h2>
-          <input value={this.state.title}
-            onChange={this.onChangeTitle.bind(this)} type="text" />
+          
+          <input value={this.state.title} type="text"
+            onChange={this.onChangeTitle.bind(this)} />
+        
         </div>
+
         <Footer />
       </div>
     );
+  }
+  
+
+  _log(methodName, args) {
+    console.log(methodName, args);
+  }
+  componentWillUpdate() { 
+    this._log('componentWillUpdate 1', arguments);
+  }
+  componentDidUpdate() {
+    this._log('componentDidUpdate 2', arguments);
+  }
+  componentWillMount() {
+    this._log('componentWillMount 3', arguments);
+  }
+  componentDidMount() {
+    this._log('componentDidMount 4', arguments);
+  }
+  componentWillUnmount() {
+    this._log('componentWillUnmount 5', arguments);
   }
 }
 
