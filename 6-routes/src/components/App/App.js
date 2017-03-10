@@ -1,28 +1,27 @@
 import React, { Component } from 'react';
-import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
+import Header from './../Header/Header';
+import Footer from './../Footer/Footer';
 
 import './App.css';
 
 class App extends Component {
 
-  constructor() {
-    super();
+  navigate() {
+    console.log(this.props)
   }
-
 
   render() {
 
     return (
       <div>
-        <h1>React Router Tutorial</h1>
-        <ul role="nav">
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/repos">Repos</Link></li>
-        </ul>
-
-        {/* add this */}
-        {this.props.children}
-
+        <Header />
+        <div>
+          
+          <div>
+            {this.props.children}
+          </div>
+        </div>
+        <Footer />
       </div>
     );
   }

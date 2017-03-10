@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
 import logo from './../../logo.svg';
+import { Link } from 'react-router';
 import './Header.css';
 
 class Header extends Component {
 
-    /*
-     * onChange listner on Input
-     */
-    changeHandler(e) {
-        this.props.changeHandler(e.target.value);
-    }
-
     render() {
         return (
             <div className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <br />
-                <input value={this.props.title} onChange={this.changeHandler.bind(this)}/>
-                <h2>{this.props.title}</h2>
+                <h2>
+                    React Router Demo
+                    <br />
+                    <Link to="/about"><button>About</button></Link>
+                    <Link to="/repos"><button>Repos</button></Link>
+                </h2>
+
             </div>
         )
     }
