@@ -11,6 +11,19 @@ function mapStateToProps(switchStatus) {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+
+  return {
+    switchTrue: () => dispatch({ type: 'SwitchTrue' }),
+    switchFalse: () => dispatch({ type: 'SwitchFalse' }),
+    toggle: function () {
+      console.log('dispatching ...')
+      dispatch({ type: 'Toggle' })
+    }
+  }
+
+}
+
 class App extends Component {
   render() {
     console.log(this.props)
@@ -24,9 +37,11 @@ class App extends Component {
           Counter: {this.props.counter.toString()}
           <br />
 
-          <button onClick={() => store.dispatch({ type: 'SwitchFalse' })}>SwitchFalse</button>
-          <button onClick={() => store.dispatch({ type: 'SwitchTrue' })}>SwitchTrue</button>
-          <button onClick={() => this.props.dispatch({ type: 'Toggle' })}>Toggle</button>
+          {this.props.counter && <button onClick={this.props.switchFalse}>SwitchFalse</button>}
+          <br />
+          {!this.props.counter && <button onClick={this.props.switchTrue}>SwitchTrue</button>}
+          <br />
+          <button onClick={this.props.toggle}>Toggle</button>
 
         </p>
       </div>
@@ -35,4 +50,4 @@ class App extends Component {
 }
 
 // export default (App);
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
